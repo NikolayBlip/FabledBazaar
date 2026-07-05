@@ -1,0 +1,79 @@
+
+
+<div id="item-base">
+
+    <div id="copy-notification" class="copy-notification">
+        <div class="notification-content">
+            <svg class="notification-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17L4 12" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="notification-text">Ссылка скопирована</span>
+        </div>
+    </div>
+    
+    <button id="card_close">
+        <span class="modal-btn exit" alt=""></span>
+    </button>
+
+    <div id="item-card" class="item-card" data-collection-color="{{ collections_colors[product.collection] }}" style="background-color: {{ collections_colors[product.collection] }}; box-shadow:
+        0px 0px 50px 10px {{  collections_colors[product.collection]  }};">
+        <div class="card-name-line">
+            <h3 class="card-name goudy">{{ product.name }}</h3>
+        </div>
+        <div class="item-card-inner">
+            <div class="card-img-box">
+                <div class="card-share" style="background-color: {{ collections_colors[product.collection] }} ;">
+                    <img src="/static/icons/share.svg" alt="">
+                </div>
+                <!-- Основное изображение -->
+                <img id="card-main-image" class="card-thumbnail" src="{{ url_for('static', filename='img/' + product.sku + '/' + product.sku + '-main.webp') }}" alt="" class="card-main-image">
+                <img class="icon-coll" src="{{  url_for('static', filename='icons/colls/' ~ product.collection|lower ~ '.svg') }}" alt="">
+            </div>
+            
+            <!-- Карусель миниатюр -->
+            <div class="card-scrolling-box" style="background-color: {{ collections_colors[product.collection] }} ;">
+                <div class="thumbnails-inner">
+                    {% if img_list %}
+                        {% for img in img_list %}
+                            {% if not img.endswith('-main.webp') %}  <!-- Пропускаем main изображение -->
+                                <img src="{{ url_for('static', filename='img/' + product.sku + '/' + img) }}" 
+                                    alt="Миниатюра" class="carousel-img"
+                                    loading="lazy">
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <p>Нет дополнительных фотографий</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div id="dimension" class="grid-container">
+                <div class="grid-item"><img src="/static/icons/dimension.svg"></div>
+                <div class="grid-item-text"><p class="gothic bold">{{ product.Height }}x{{ product.Width }} мм</p></div>
+                <div class="grid-item"><img src="/static/icons/weight.svg"></div>
+                <div class="grid-item-text"><p class="gothic bold">{{ product.Weight }} гр</p></div>
+                <div class="grid-item"><img src="/static/icons/material.svg"></div>
+                <div class="grid-item-text card-info-text-flex"><p class="p-st card-grid-material gothic">{{ product.material }}</p></div>
+            </div>
+            <div class="card-line" style="background-color: {{ collections_colors[product.collection] }} ;">
+                <p class="card-collection gothic_bold">Коллекция «{{ product.collection }}»</p>
+                <div class="card-line-circle">
+                    <img src="/static/icons/dot.svg" alt="">
+                </div>
+            </div>
+            <div class="card-text">
+                <p id="card_description" class="gothic card-description">{{ product.short_description }}</p>
+            </div>
+        </div>
+        <h3 class="card-macguffin-heading goudy">МАКГАФФИНЫ</h3>
+    </div>
+    <div class="VK-container">
+        <button id="card_VK" style="box-shadow: 0px 0px 35px 0px {{ collections_colors[product.collection] }}">
+            <a href="{{ product.link }}" class="goudy" target="_blank">VK</a>
+        </button>
+    </div>
+</div>
+
+<script src="/static/js/card_parallax.js?v=2.0"></script>
+<script src="/static/js/card_info.js?v=2.0"></script>
+<script src="/static/js/card_thumbnails_carousel.js?v=2.0"></script>

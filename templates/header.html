@@ -1,0 +1,99 @@
+
+<div id="shop_menu" class="shop-menu">
+    <div class="letter-box">
+        <span id="menu_btn_mobile" class="letter Burger">
+            <span class="svg-normal" style="background-image: url('/static/icons/burger.svg');"></span>
+        </span>
+        <span class="letter F" data-collection="Futurism">
+            <span class="svg-normal" style="background-image: url('/static/letters/F.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/F_red.svg');"></span>
+        </span>
+        <span class="letter A empty" data-collection="">
+            <span class="svg-normal" style="background-image: url('/static/letters/A.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/A.svg');"></span>
+        </span>
+        <span class="letter B" data-collection="Baby dream">
+            <span class="svg-normal" style="background-image: url('/static/letters/B.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/B_red.svg');"></span>
+        </span>
+        <span class="letter L" data-collection="Lucky items">
+            <span class="svg-normal" style="background-image: url('/static/letters/L.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/L_red.svg');"></span>
+        </span>
+        <span class="letter E" data-collection="Exlibris">
+            <span class="svg-normal" style="background-image: url('/static/letters/E.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/E_red.svg');"></span>
+        </span>
+        <span class="letter D empty" data-collection="">
+            <span class="svg-normal" style="background-image: url('/static/letters/D.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/D_red.svg');"></span>
+        </span>
+        <span id="menu_btn_desktop" class="letter gecco">
+            <span class="svg-normal"></span>
+            <span class="svg-red"></span>
+        </span>
+        <span class="letter B" data-collection="Beast">
+            <span class="svg-normal" style="background-image: url('/static/letters/B.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/B_red.svg');"></span>
+        </span>
+        <span class="letter A" data-collection="">
+            <span class="svg-normal" style="background-image: url('/static/letters/A.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/A_red.svg');"></span>
+        </span>
+        <span class="letter Z" data-collection="Zodiac">
+            <span class="svg-normal" style="background-image: url('/static/letters/Z.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/Z_red.svg');"></span>
+        </span>
+        <span class="letter A" data-collection="All Hallows Eve">
+            <span class="svg-normal" style="background-image: url('/static/letters/A.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/A_red.svg');"></span>
+        </span>
+        <span class="letter A" data-collection="Alchimia">
+            <span class="svg-normal" style="background-image: url('/static/letters/A.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/A_red.svg');"></span>
+        </span>
+        <span class="letter R" data-collection="">
+            <span class="svg-normal" style="background-image: url('/static/letters/R.svg');"></span>
+            <span class="svg-red" style="background-image: url('/static/letters/R_red.svg');"></span>
+        </span>
+    </div>
+</div>
+
+<div id="collection-title"></div>
+
+<script>
+    $(document).ready(function() {
+        // Добавляем CSS для плавной анимации
+        $('<style>')
+            .prop('type', 'text/css')
+            .html(`
+                .svg-normal {
+                    transition: transform 0.3s ease-in-out;
+                }
+            `)
+            .appendTo('head');
+        
+        function animateSVGWave() {
+            $('.svg-normal').each(function(index) {
+                var $this = $(this);
+                
+                // Задержка для каждого элемента (300ms между элементами)
+                setTimeout(function() {
+                    // Увеличение
+                    $this.css('transform', 'scale(1.1)');
+                    
+                    // Уменьшение через 300ms
+                    setTimeout(function() {
+                        $this.css('transform', 'scale(1)');
+                    }, 300);
+                }, index * 300);
+            });
+        }
+        
+        // Запускаем первую анимацию сразу
+        animateSVGWave();
+        
+        // Повторяем анимацию каждые 10 секунд
+        setInterval(animateSVGWave, 5000);
+    });
+</script>
