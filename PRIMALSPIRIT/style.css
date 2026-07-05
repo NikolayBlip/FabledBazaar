@@ -1,0 +1,1062 @@
+/* Ваш CSS код остается без изменений */
+
+@font-face {
+  font-family: 'CaesarDressingCyrillic';
+  src: url('./fonts/caesardressingcyrillic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeuchaCyrillic';
+  src: url('./fonts/Neucha.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.totem-link {
+    text-decoration: none;
+}
+
+#q1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.small-icon {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    padding: 12px;
+    filter: sepia(1);
+    opacity: 0.5;
+}
+
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/back/middle.webp);
+    /* background-repeat: repeat-y; */
+    background-position: center;
+    background-size: 100% auto;
+    /* background-attachment: fixed; */
+    z-index: 1;
+    pointer-events: none;
+    max-width: 650px;
+}
+
+body {
+    color: #fff;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'NeuchaCyrillic';
+    position: relative;
+    overflow-x: hidden;
+    background: url(./images/back/background.jpg);
+    background-size: cover;
+    letter-spacing: 2px;
+    max-width: 650px;
+}
+
+.base-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./images/back/background.jpg') center center no-repeat;
+    background-size: cover;
+    /* Картинка растягивается на весь экран */
+}
+
+/* Фоновые изображения */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1;
+    max-width: 650px;
+}
+
+/* Верхняя картинка */
+body::before {
+    top: 0;
+    height: 600px;
+    /* или нужная высота */
+    background: url('./images/back/top.webp') center top no-repeat;
+    background-size: contain;
+    z-index: 4;
+}
+
+/* Нижняя картинка */
+body::after {
+    bottom: 0;
+    height: 600px;
+    /* или нужная высота */
+    background: url('./images/back/bottom.webp') center bottom no-repeat;
+    background-size: contain;
+    z-index: 3;
+}
+
+
+.top-box {
+    top: 0;
+    height: 600px;
+    /* или нужная высота */
+    background: url('./images/back/top.webp') center top no-repeat;
+    background-size: contain;
+    z-index: 4;
+    margin: 0 auto auto auto;
+}
+
+.bottom-box {
+    bottom: 0;
+    height: 600px;
+    /* или нужная высота */
+    background: url('./images/back/bottom.webp') center bottom no-repeat;
+    background-size: contain;
+    z-index: 3;
+    margin: auto auto 0 auto;
+}
+
+.top-box,
+.bottom-box {
+    content: '';
+    position: fixed;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1;
+    max-width: 650px;
+    display: none;
+    inset: 0;
+}
+
+/* Центральная картинка */
+body {
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+}
+
+h1 {
+    font-family: 'CaesarDressingCyrillic', cursive;
+    font-size: 50pt;
+    letter-spacing: 3px;
+    color: #FBD26E;
+    margin-bottom: 10px;
+}
+
+/* Стили вопросов */
+.question-container {
+    min-height: 60dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column-reverse;
+    gap: 30px;
+}
+
+.question-text {
+    font-size: 14pt;
+    margin-bottom: 30px;
+    color: #fff;
+    max-width: 80%;
+    line-height: 1.5;
+}
+
+.options {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-flow: wrap-reverse;
+}
+
+.option {
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100px;
+}
+
+.option-label {
+    font-size: 14pt;
+    max-width: 150px;
+    margin-top: 10px;
+    color: #FBD26E;
+}
+
+.option:hover {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+}
+
+/* Прогресс бар */
+.progress-container {
+    display: none;
+    width: auto;
+    max-width: 600px;
+    margin: 30px 61px;
+    background: #333;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #FBD26E, #f4e5c2);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* Результаты */
+.results-section {
+    display: none;
+    animation: fadeIn 0.8s ease;
+    margin-top: 20%;
+}
+
+.animal-header-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.animal-selection {
+    display: none;
+}
+
+.totem-section {
+    display: none;
+}
+
+.results-title {
+    font-family: 'CaesarDressingCyrillic', cursive;
+    font-size: 24pt;
+    color: #FBD26E;
+    margin-bottom: 8px;
+}
+
+.results-subtitle {
+    font-size: 16pt;
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+.spirits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.spirit-card {
+    padding: 20px;
+    border-radius: 15px;
+    width: 220px;
+    background-image: url(/PRIMALSPIRIT/images/back/base_long.png);
+    background-size: 100% 100%;
+}
+
+.animal-header-symbol {
+    margin-bottom: 45px;
+}
+.spirit-emoji {
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.spirit-name {
+    font-size: 28px;
+    color: #FBD26E;
+    font-family: 'CaesarDressingCyrillic', cursive;
+    margin-top: 20px;
+}
+
+.spirit-description {
+    font-size: 16px;
+    color: #aaa;
+    margin-bottom: 10px;
+    min-height: 50px;
+}
+
+.spirit-gift {
+    font-size: 14px;
+    color: #f1c40f;
+    font-style: italic;
+}
+
+/* Стили для выбора тотема */
+.totem-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.totem-card {
+    margin-top: 20px !important;
+    background-image: url(/PRIMALSPIRIT/images/back/base_long.png);
+    background-size: 100% 100%;
+    margin: auto;
+    padding: 50px 40px;
+    max-width: 95%;
+    width: 100%;
+}
+
+
+
+.totem-animals {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.totem-animal {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.test-icons {
+    height: 85px;
+    background-size: cover;
+}
+
+
+.animal-emoji {
+    font-size: 24px;
+}
+
+.animals-images {
+    max-width: 210px;
+    filter: drop-shadow(0px 0px 22px black);
+}
+.animals-images-totem {
+    max-width: 150px;
+    filter: drop-shadow(0px 0px 22px black);
+}
+
+.animal-name {
+    font-size: 16px;
+}
+.animal-page {
+    margin-top: 18%;
+}
+.animal-header-logo {
+    max-height: 230px;
+    padding: 20px;
+    margin:  20px 20px 0px 20px;
+    filter: drop-shadow(0px 0px 20px black);
+}
+.poem-content {
+    font-size: 13pt;
+}
+.poem-title {
+    margin-bottom: 10px;
+}
+.get-button-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.totem-gift {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    color: #f1c40f;
+    font-style: italic;
+}
+
+.spirit-characteristic {
+    font-size: 18px;
+    color: #f4e5c2;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.spirit-symbol {
+    font-size: 14px;
+    color: #FBD26E;
+    margin: 8px 0;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.spirit-card .totem-btn {
+    margin-top: 15px;
+    width: 85%;
+    padding: 10px;
+    font-size: 14px;
+    background-size: cover;			
+    background-image: url(./images/back/button.webp);
+    height: auto;
+    aspect-ratio: 3.8 / 1;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: transparent;
+    margin-bottom: 18px;
+    font-family: 'CaesarDressingCyrillic', cursive;
+    color: #232324;
+    font-size: 19pt;
+}
+
+.get-button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background-size: cover;			
+    background-image: url(./images/back/button.webp);
+    height: auto;
+    aspect-ratio: 3.8 / 1;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: transparent;
+
+    width: 80%;
+    position: relative;
+    display: block;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.back-btn {
+    background: rgba(212, 175, 55, 0.2);
+    color: #FBD26E;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+
+
+    .spirit-card {
+        width: 100%;
+        max-width: 95%;
+    }
+}
+
+
+.square-container {
+    position: absolute;
+    /* или absolute, в зависимости от нужного поведения */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    /* центрирование по горизонтали */
+    align-items: flex-start;
+    /* привязка к верху */
+    pointer-events: none;
+    /* чтобы не мешало кликам */
+    z-index: 10;
+}
+
+.square-container-bottom {
+    position: absolute;
+    /* или absolute, в зависимости от нужного поведения */
+    left: 0;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    /* центрирование по горизонтали */
+    align-items: end;
+    /* привязка к верху */
+    pointer-events: none;
+    /* чтобы не мешало кликам */
+    z-index: 10;
+    bottom: 0;
+}
+
+.square-image {
+    width: 30dvw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-image 0.3s ease;
+}
+
+
+.cell-inactive {
+  background-image: url('./images/back/cell.webp');
+}
+
+.cell-active {
+  background-image: url('./images/back/cell_active.webp');
+}
+
+
+
+.cell-top {
+    margin-top: 5px;
+    /* отступ от верха */
+}
+
+.cell-left-top {
+    left: 7px;
+    top: 20%;
+    z-index: 10;
+}
+
+.cell-right-top {
+    right: 7px;
+    top: 20%;
+    z-index: 10;
+}
+
+.cell-left-bottom {
+    left: 7px;
+    bottom: 20%;
+    z-index: 10;
+}
+
+.cell-right-bottom {
+    right: 7px;
+    bottom: 20%;
+    z-index: 10;
+}
+.cell-left-middle {
+    left: 7px;
+    top: 46.5%;
+    z-index: 10;
+}
+.cell-right-middle {
+    right: 7px;
+    top:  46.5%;
+    z-index: 10;
+}
+.cell-big {
+    max-width: 15%;
+}
+.cell-norm {
+    max-width: 10%;
+}
+.cell-left-back {
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    z-index: 20;
+    width: 30dvh;
+    max-width: 12%;
+    background-image: url('/PRIMALSPIRIT/images/back/back.webp');
+    z-index: 100;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+}
+
+.cell-left-first {
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    z-index: 20;
+    width: 30dvh;
+    max-width: 12%;
+}
+.cell-right-first {
+    position: absolute;
+    right: 6px;
+    top: 4px;
+    z-index: 20;
+    width: 30dvh;
+    max-width: 12%;
+}
+
+.cell-left-last {
+    position: absolute;
+    left: 6px;
+    bottom: 4px;
+    z-index: 20;
+    width: 30dvh;
+    max-width: 12%;
+}
+.cell-right-last {
+    position: absolute;
+    right: 6px;
+    bottom: 4px;
+    z-index: 20;
+    width: 30dvh;
+    max-width: 12%;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: #FBD26E;
+  font-family: 'CaesarDressingCyrillic', cursive;
+  text-align: center;
+}
+
+.loader-text {
+  font-size: 48px;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, #FBD26E, #f4e5c2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loader-subtext {
+  font-size: 18px;
+  color: #aaa;
+}
+
+/* Скрыть лоадер после загрузки */
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.animal-header-content {
+    background-image: url(/PRIMALSPIRIT/images/back/base.png);
+    background-size: cover;
+    /* padding: 20px; */
+    margin: auto;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 95%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-size: 100% 100%;
+}
+
+.animal-header-title {
+    font-weight: 400;
+}
+.animal-header-description {
+    margin-bottom: 2px;
+}
+.animal-poem-section {
+    margin-top: 20px !important;
+    margin: auto;
+    padding: 20px 20px;
+    max-width: 95%;
+    width: 100%;
+}
+.floating-cloud {
+    transform-origin: center;
+    max-width: 235px;
+    position: fixed;
+    display: inline;
+    z-index: 3;
+}
+
+#cloud_left {
+    animation: left_clodu_1st 4s ease-in-out infinite;
+    rotate: -23deg;
+    top: -22px;
+    left: -33px;
+}
+
+#cloud_right {
+    animation: right_clodu_1st 4s ease-in-out infinite;
+    rotate: 23deg;
+    top: -22px;
+    right: -33px;
+}
+
+#cloud_middle {
+    animation: middle_clodu_1st 4s ease-in-out infinite;
+    rotate: 180deg;
+    top: -22px;
+    z-index: 1 !important;
+}
+.back-pc {
+    display: none;
+}
+.back-left {
+    display: none;
+}
+.back-right {
+    display: none;
+}
+#canvas {
+    display: none;
+}
+.back-container {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 20;
+    height: 60px;
+}
+
+
+.global-back-button {
+    background-image: url(/PRIMALSPIRIT/images/back/back.webp);
+    z-index: 100;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    background-size: cover;
+    left: 19px;
+    margin-left: 7px;
+    margin-top: 4px;
+    width: 30dvw;
+    max-width: 12%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+/* Стили для кликабельных животных в тотемах */
+.totem-animal {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.totem-animal:hover {
+  transform: scale(1.05);
+}
+
+.totem-animal:hover .animal-name {
+  color: #f1c40f; /* Золотой цвет при наведении */
+}
+
+.animal-name {
+    width: 80%;
+    padding: 9px 5px;
+    color: white;
+}
+.vk_text {
+    color: #f1c40f;
+    font-weight: 600;
+}
+.vk_btn {
+    background: url('/PRIMALSPIRIT/images/back/vk.webp');
+    aspect-ratio: 1/1;
+    width: 30px;
+    position: absolute;
+    background-size: contain;
+        aspect-ratio: 1 / 1;
+    width: 30px;
+    position: absolute;
+    background-size: contain;
+    right: 31%;
+    top: 13%;
+}
+
+
+
+
+
+
+
+@keyframes left_clodu_1st {
+  0% {
+    transform: translateX(-5px) scale(1.03);
+  }
+  50% {
+    transform: translateX(5px) scale(1.03);
+  }
+  100% {
+    transform: translateX(-5px) scale(1.03);
+  }
+}
+
+@keyframes right_clodu_1st {
+  0% {
+    transform: translateX(5px) scale(1.03);
+  }
+  50% {
+    transform: translateX(-5px) scale(1.03);
+  }
+  100% {
+    transform: translateX(5px) scale(1.03);
+  }
+}
+
+@keyframes middle_clodu_1st {
+  0% {
+    transform: translateY(5px) scale(1.03);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.03);
+  }
+  100% {
+    transform: translateY(5px) scale(1.03);
+  }
+}
+
+
+
+
+@media (min-width: 769px) {
+    .back-container {
+        width: 650px;
+        position: fixed;
+        top: 0px;
+        z-index: 20;
+        min-width: 650px;
+        height: 60px;
+    }
+    .global-back-button {
+        display: block;
+        z-index: 20;
+        width: 74px;
+        background-image: url(/PRIMALSPIRIT/images/back/back.webp);
+        z-index: 100;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        background-size: cover;
+        height: 74px;
+        left: 19px;
+        margin-left: 12px;
+        margin-top: 7px;
+    }
+    html {
+        display: flex;
+        justify-content: center;
+        background: black;
+    }
+    body {
+        width: 650px;
+        z-index: auto;
+        box-shadow: 0 0 50px 30px #000, 0 0 80px 50px #000, 0 0 111px 80px #000;
+    }
+    body::after {
+        display: none;
+    }
+
+    .top-box, 
+    .bottom-box {
+        display: block;
+        z-index: 6;
+    }
+    .spirit-card {
+        width: 405px;
+    }
+
+    html::before {
+        display: none;
+    }  
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(./images/back/middle.webp);
+        background-repeat: repeat-y;
+        background-position: center;
+        background-size: 100% auto;
+        /* background-attachment: fixed; */
+        z-index: 1;
+        pointer-events: none;
+        max-width: 650px;
+    }
+    .test-icons {
+        height: 165px;
+    }
+    .options {
+        gap: 70px;
+    }
+    .option {
+        max-width: max-content;;
+    }
+    .option-label {
+        font-size: 18pt;
+    }
+    .spirit-card {
+        width: 495px;
+    }
+    .animals-images {
+        max-width: 300px;
+    }
+    .animal-header-image {
+        margin-bottom: 50px;
+    }
+    .spirit-name {
+        font-size: 48px;
+    }
+    .spirit-card .totem-btn {
+        margin-bottom: 30px;
+        font-size: 19pt;
+    }
+    .animal-header-logo {
+    max-height: 355px;
+    }
+    .animal-header-content {
+        max-width: 100%;
+    }
+    .question-text {
+        max-width: 75%;
+        font-size: 21pt;
+    }
+
+    #canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0; /* Отправляем на задний план */
+        pointer-events: none; /* Не перехватываем клики... */
+        display: block;
+    }
+
+    #canvas * {
+        pointer-events: none; /* На всякий случай */
+    }
+    .container {
+        max-width: 550px;
+    }
+    .back-pc {
+        display: block;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        justify-content: space-between;
+        z-index: -1;
+        top: 0;
+    }
+    .back-left {
+        width: 100%;
+        background-image: url(/PRIMALSPIRIT/images/back/back_pc_left.webp);
+        background-size: cover;
+        max-width: 900px;
+        display: block;
+    }
+    .back-right {
+        width: 100%;
+        background-image: url(/PRIMALSPIRIT/images/back/back_pc_right.webp);
+        background-size: cover;
+        max-width: 900px;
+        display: block;
+    }
+    .totems-subtitle {
+        font-size: 22px;
+        margin-top: 4px;
+        margin-bottom: 40px;
+    }
+    .totems-title {
+        font-size: 40px;
+        font-family: 'CaesarDressingCyrillic';
+    }
+    .results-title {
+        font-size: 38pt;
+    }
+    .results-subtitle {
+        font-size: 20pt;
+    }
+    .animal-totems-section {
+        margin-top: 50px;
+    }
+    .totem-card h3 {
+        font-size: 40px;
+        font-family: 'CaesarDressingCyrillic';
+    }
+    .animals-images-totem {
+        max-width: 185px;
+    }
+    .get-button {
+        font-size: 24px;
+    }
+    .poem-content {
+        font-size: 17pt;
+    }
+    .question-container {
+        gap: 65px;
+    }
+    .spirit-card {
+        padding: 20px;
+        border-radius: 15px;
+        background-image: url(/PRIMALSPIRIT/images/back/base.png);
+        background-size: 100% 100%;
+    }
+}
+
+.option-label {
+    display: none;
+}
+.question-text {
+    display: none;
+}

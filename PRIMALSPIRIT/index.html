@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<canvas id="canvas"></canvas>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIMAL SPIRIT - Твой тотем</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/PRIMALSPIRIT/style.css">
+  <script src="/PRIMALSPIRIT/data/animals.js"></script>
+  <script src="/PRIMALSPIRIT/data/archetypesData.js"></script>
+  <script src="/PRIMALSPIRIT/data/totemsData.js"></script>
+  <script src="/PRIMALSPIRIT/data/questions.js"></script>
+  <script src="/PRIMALSPIRIT/templates.js"></script>
+</head>
+
+<body>
+  <div class="back-container">
+        <button id="globalBackButton" class="global-back-button" style="display: none;">
+  </button>
+  </div>
+  <div class="top-box"></div>
+  <div id="loader" class="loader">
+    <div class="loader-text">PRIMAL SPIRIT</div>
+    <div class="loader-subtext">Загрузка тотемов...</div>
+  </div>
+
+  <img src="/PRIMALSPIRIT/images/back/cloud.png" alt="Облако" id="cloud_left" class="floating-cloud">
+  <img src="/PRIMALSPIRIT/images/back/cloud.png" alt="Облако" id="cloud_right" class="floating-cloud">
+
+
+  <div class="square-container">
+    <div class="square-image cell-big cell-top cell-inactive" id="q1"></div>
+    <div class="square-image cell-norm cell-right-first cell-inactive" id="q2"></div>
+  </div>
+
+  <div class="square-image cell-norm cell-left-top cell-inactive" id="q11"></div>
+  <div class="square-image cell-norm cell-right-top cell-inactive" id="q3"></div>
+  <div class="square-image cell-norm cell-left-middle cell-inactive" id="q10"></div>
+  <div class="square-image cell-norm cell-right-middle cell-inactive" id="q4"></div>
+  <div class="square-image cell-norm cell-left-bottom cell-inactive" id="q9"></div>
+  <div class="square-image cell-norm cell-right-bottom cell-inactive" id="q5"></div>
+
+  <div class="square-container-bottom">
+    <div class="square-image cell-norm cell-left-last cell-inactive" id="q8"></div>
+    <div class="square-image cell-big cell-top cell-inactive" id="q7"></div>
+    <div class="square-image cell-norm cell-right-last cell-inactive" id="q6"></div>
+  </div>
+
+  <div class="container">
+    <div class="progress-container" style="display: none;">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div id="questionContainer"></div>
+    <div id="animalSelection" style="display: none;"></div>
+    <div id="totemSection" style="display: none;"></div>
+  </div>
+  
+  <div class="bottom-box"></div>
+  <script src="/PRIMALSPIRIT/logic.js"></script>
+  <script src="/PRIMALSPIRIT/flickers.js"></script>
+</body>
+
+<div class="back-pc">
+  <div class="back-left"></div>
+  <div class="back-right"></div>
+</div>
+
+</html>

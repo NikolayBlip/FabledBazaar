@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Животные</title>
+</head>
+<body>
+  <div id="output"></div>
+
+  <!-- Подключаем файл с данными -->
+  <script src="animals.js"></script>
+
+  <!-- Скрипт для вывода информации -->
+  <script>
+    // Проверяем, что массив animals существует
+    if (typeof animals !== 'undefined' && Array.isArray(animals)) {
+      const count = animals.length;
+      const names = animals.map(animal => animal.name).join('<br>');
+
+      const output = document.getElementById('output');
+      output.innerHTML = `
+        <p>Количество объектов: <strong>${count}</strong></p>
+        <p>Названия:<br><strong>${names}</strong></p>
+      `;
+    } else {
+      document.getElementById('output').textContent = 'Ошибка: массив animals не найден.';
+    }
+  </script>
+</body>
+</html>
